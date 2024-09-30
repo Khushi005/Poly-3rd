@@ -52,9 +52,20 @@ component main = khushi_project();
 2. Generate a witness for the circuit with your specific inputs.
 3. Run the circuit to see the final output `Q`.
 
+### Install
+`npm i`
+
+### Compile
+`npx hardhat circom` 
+This will generate the **out** file with circuit intermediaries and geneate the **MultiplierVerifier.sol** contract
+
+### Prove and Deploy
+`npx hardhat run scripts/deploy.ts`
+This script does 4 things  
+1. Deploys the MultiplierVerifier.sol contract
+2. Generates a proof from circuit intermediaries with `generateProof()`
+3. Generates calldata with `generateCallData()`
+4. Calls `verifyProof()` on the verifier contract with calldata
+5. 
 ## Author
 This project was developed by **Khushi (22BCS15624)**.
-
----
-
-Let me know if you'd like any further customizations for the README!
